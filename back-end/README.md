@@ -3,7 +3,7 @@
 
 ## Requirements
  mysql 5.1
- nodejs 12.14.1
+ , nodejs 12.14.1
 
 ## Install 
 $ npm install
@@ -12,11 +12,11 @@ $ npm install
 ## Run 
 $ npm start 
 
-## Test unit  
+## Unit test  
 $ npm test 
 
 
-## DATABSE CONFIG 
+## DATABASE CONFIG 
 src/config/Constant.ts
 
     static DB_CONNECTION_STRING: string = "127.0.0.1/phonebook";
