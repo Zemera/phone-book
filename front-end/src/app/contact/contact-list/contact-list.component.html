@@ -1,0 +1,114 @@
+
+<p-table #tt [columns]="cols" [value]="contacts" [responsive]="true" selectionMode="single" [(selection)]="selectedContact" (onRowSelect)="onRowSelect($event)"  [paginator]="true" [rows]="15">
+    <ng-template pTemplate="caption">
+
+        <h3 *ngIf="contacts.length===0"> Empty </h3>
+        <h3 *ngIf="contacts.length!==0"> My Contacts </h3>
+        <div style="text-align: right">
+          <span *ngIf="!multiSelect">
+            <i class="pi pi-search" ></i>
+            <input type="text" size="30" pInputText  placeholder="Search" (input)="search($event.target.value)" >
+            <!-- <input type="text" size="30" pInputText  placeholder="Search  " (input)="tt.filterGlobal($event.target.value, 'contains')" > -->
+          </span>
+           <span *ngIf="multiSelect">
+            <button pButton type="button" icon="pi pi-times" (click)="deleteMany()" label="Delete {{selectedContacts.length}} selected" class="ui-button-danger"></button>
+            <button pButton type="button"  label="Cancel" class="ui-button-primary" (click)="cancelDelete()"></button>
+          </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="ui-p-5">
+            Handle
+            <p-sortIcon [field]="'adresse'"></p-sortIcon>
+          </th>
+            <th>
+              Full Name
+              <p-sortIcon [field]="'first_name'"></p-sortIcon>
+            </th>
+            <th>
+              Phone
+              <p-sortIcon [field]="'phone'"></p-sortIcon>
+            </th>
+            <th class="ui-p-5">
+              Email
+              <p-sortIcon [field]="'email'"></p-sortIcon>
+            </th>
+            <th class="ui-p-5">
+              Adresse
+              <p-sortIcon [field]="'adresse'"></p-sortIcon>
+            </th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td class="ui-p-5">
+              <input  type="checkbox" id="adresse" ngControl="'trade'+rowData.id" (change)="selectRow(rowData.id,$event.target)" />
+          </td>
+            <td> {{ rowData.first_name }} {{ rowData.last_name }}</td>
+            <td> {{ rowData.phone }} </td>
+            <td class="ui-p-5"> {{ rowData.email }} </td>
+            <td class="ui-p-5">  {{ rowData.adresse }} </td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+            <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
+    <div class="ui-g ui-fluid" *ngIf="contact">
+      <span class="error" >{{ errorMsg }}</span>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="first_name">First name:</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="first_name" [(ngModel)]="contact.first_name" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="last_name">Last name:</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="last_name" [(ngModel)]="contact.last_name" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="phone"> <span class="error">*</span> Phone:</label>
+            </div>
+            <div class="ui-g-8">
+
+                <input pInputText id="phone"  [(ngModel)]="contact.phone" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="email">Email</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="email" [(ngModel)]="contact.email" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="adresse">Adresse</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText type="text" id="adresse" [(ngModel)]="contact.adresse" />
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-times" (click)="delete()" label="Delete"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
