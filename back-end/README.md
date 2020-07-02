@@ -2,7 +2,7 @@
 ## PhoneBook
 
 ## Requirements
- mongodb 4.0.14
+ mysql 5.1
  nodejs 12.14.1
 
 ## Install 
