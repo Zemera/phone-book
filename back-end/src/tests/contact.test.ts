@@ -36,7 +36,7 @@ describe('Test Unit for phonebook App',() =>{
                         assert(1 === (2*9),'Connection database failed')
                     }
 
-                }, 3000);
+                }, 4000);
             })
         })
        describe('' , () => {

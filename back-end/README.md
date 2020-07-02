@@ -2,7 +2,7 @@
 ## PhoneBook
 
 ## Requirements
- mysql 5.1
+ mysql 5.7
  , nodejs 12.14.1
 
 ## Install 

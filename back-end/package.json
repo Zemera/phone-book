@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "set-node-env": "set NODE_ENV=test",
-    "test": "npm run set-node-env && mocha  --bail --timeout 4000 -r ts-node/register ./src/tests/contact.test.ts",
+    "test": "npm run set-node-env && mocha  --bail --timeout 6000 -r ts-node/register ./src/tests/contact.test.ts",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "watch": "npm run build -- --watch",
     "build": "echo Using TypeScript && tsc --version && tsc --pretty",
