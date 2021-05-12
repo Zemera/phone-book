@@ -48,7 +48,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "@types/underscore": "^1.10.2",
-    "chart.js": "2.7.3",
+    "chart.js": "2.9.4",
     "classlist.js": "1.1.20150312",
     "codelyzer": "^5.0.0",
     "core-js": "2.6.2",
