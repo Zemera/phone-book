@@ -27,7 +27,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/angular": "^1.6.57",
     "angular-zoom": "0.0.5",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "ngx-print": "^1.2.0-beta.4",
     "primeflex": "^1.0.0",
     "primeicons": "1.0.0",
